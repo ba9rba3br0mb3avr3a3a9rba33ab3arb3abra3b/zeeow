@@ -1,3 +1,11 @@
+-- made by cyrus ofc, some modifications by zeow
+
+-- wait until it resets you, if it doesn't it didnt load right
+
+repeat
+    wait()
+until game.Players.LocalPlayer.Backpack:FindFirstChild("Knife") and game.Players.LocalPlayer.Backpack:FindFirstChild("Punch")
+
 local Tick = tick()
 
 -- Global Variables --
