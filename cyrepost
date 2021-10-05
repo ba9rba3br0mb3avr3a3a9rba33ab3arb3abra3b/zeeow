@@ -4,7 +4,8 @@
 
 repeat
     wait()
-until game.Players.LocalPlayer.Backpack:FindFirstChild("Knife") and game.Players.LocalPlayer.Backpack:FindFirstChild("Punch")
+until game:IsLoaded() and game.Players and game.Players.LocalPlayer.Backpack:FindFirstChild("Knife") and
+    game.Players.LocalPlayer.Backpack:FindFirstChild("Punch")
 
 local Tick = tick()
 
@@ -356,15 +357,15 @@ local BackDoorTablePlayers = {
 }
 
 local BlacklistTable = {
-    [2893328794] = true, 
-    [2856687256] = true, 
-    [2618973417] = true, 
-    [2811076955] = true, 
-    [2355350616] = true, 
+    [2893328794] = true,
+    [2856687256] = true,
+    [2618973417] = true,
+    [2811076955] = true,
+    [2355350616] = true,
     [156878502] = true, -- Floor
     [1892264393] = true, -- Regular
-    [2576812439] = true, 
-    [63335142] = true, 
+    [2576812439] = true,
+    [63335142] = true
 }
 
 local SettingsTable = {
@@ -1617,7 +1618,7 @@ RunService.Stepped:Connect(
         local Tool = Character:FindFirstChildOfClass "Tool"
         if AntiKill and Tool and not table.find(ToolTable, Tool) then
             if Character:FindFirstChild "Right Arm" and Character["Right Arm"]:FindFirstChild "RightGrip" then
-            game:GetService "Players".LocalPlayer.Character:FindFirstChildOfClass "Humanoid":UnequipTools()
+                game:GetService "Players".LocalPlayer.Character:FindFirstChildOfClass "Humanoid":UnequipTools()
             end
         end
         if flying and Character:FindFirstChild "Humanoid" and (game.PlaceId == 455366377 and not FlyDebounce) then
@@ -4092,9 +4093,9 @@ coroutine.resume(
             dragGUI(KeysFrame, KeysFrame)
         end
     )
-) --  --
+) --[[ Loops ]] --  --
 
---[[ End ]] --[[ Loops ]] coroutine.resume(
+--[[ End ]] coroutine.resume(
     coroutine.create(
         function()
             local FileDir, isFolder, makeFolder =
