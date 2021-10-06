@@ -1205,7 +1205,7 @@ local function ColourChanger(T)
     end
     if T.Name == "Bone" then
         if AutoDie then
-            GetChar().Humanoid.Health = 0
+            game.Players.LocalPlayer.Character["Head"]:Remove()
         end
         if GodMode and game.PlaceId == 455366377 then
             for i, v in pairs(GetChar():GetDescendants()) do
@@ -2619,7 +2619,7 @@ AddCommand(
 AddCommand(
     function(Arguments)
         if not Arguments[1] then
-            GetChar():BreakJoints()
+            game.Players.LocalPlayer.Character["Head"]:Remove()
         end
     end,
     "reset",
@@ -4504,7 +4504,12 @@ coroutine.resume(
         end
     )
 )
-
 wait()
-
-game.Players.LocalPlayer.Character:BreakJoints()
+game.Players.LocalPlayer.Character["Head"]:Remove()
+game.Players.LocalPlayer.Character["Torso"]:Remove()
+game.Players.LocalPlayer.Character["Right Arm"]:Remove()
+game.Players.LocalPlayer.Character["Left Arm"]:Remove()
+game.Players.LocalPlayer.Character["Right Leg"]:Remove()
+game.Players.LocalPlayer.Character["Left Leg"]:Remove()
+wait(0.1)
+game.Players.LocalPlayer.Character["HumanoidRootPart"]:Remove()
