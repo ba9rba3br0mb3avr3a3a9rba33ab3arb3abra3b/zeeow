@@ -1,6 +1,3 @@
--- made by cyrus ofc, some modifications by zeow
--- wait until it resets you, if it doesn't it didnt load right
-
 repeat
     wait()
 until game:IsLoaded() and game.Players and game.Players.LocalPlayer.Backpack:FindFirstChild("Knife") and
@@ -4505,11 +4502,4 @@ coroutine.resume(
     )
 )
 wait()
-game.Players.LocalPlayer.Character["Head"]:Remove()
-game.Players.LocalPlayer.Character["Torso"]:Remove()
-game.Players.LocalPlayer.Character["Right Arm"]:Remove()
-game.Players.LocalPlayer.Character["Left Arm"]:Remove()
-game.Players.LocalPlayer.Character["Right Leg"]:Remove()
-game.Players.LocalPlayer.Character["Left Leg"]:Remove()
-wait(0.1)
-game.Players.LocalPlayer.Character["HumanoidRootPart"]:Remove()
+game.Players.LocalPlayer.Character:BreakJoints()
